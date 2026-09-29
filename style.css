@@ -704,6 +704,35 @@ button {
   text-transform: uppercase;
 }
 
+/* En teléfonos chicos las 3 columnas quedan demasiado angostas,
+   así que cada dato pasa a ser una fila: valor a la izquierda, etiqueta a la derecha. */
+@media (max-width: 29.99rem) {
+  .about__stats {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0.5rem 1.25rem;
+    text-align: left;
+  }
+
+  .stat {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .stat:last-child {
+    border-bottom: 0;
+  }
+
+  .stat__label {
+    margin-top: 0;
+    text-align: right;
+  }
+}
+
 @media (min-width: 64rem) {
   .about__inner {
     grid-template-columns: 1.2fr 1fr;
