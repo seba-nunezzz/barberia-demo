@@ -3,7 +3,7 @@
 Landing page de una sola página para una barbería ficticia de Montevideo, pensada como
 **demo de portfolio** para ofrecer sitios web a negocios locales.
 
-- **Demo publicada:** <https://donramonbarbershop.github.io/barberia-demo/> _(placeholder: reemplazar por la URL real al publicar)_
+- **Demo publicada:** <https://seba-nunezzz.github.io/barberia-demo/>
 - **Contacto de la demo (ficticio):** +598 94 123 456
 - **Diseño:** oscuro y elegante con detalles dorados
 
