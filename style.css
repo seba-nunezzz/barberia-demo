@@ -112,8 +112,356 @@ button {
   outline-offset: 3px;
 }
 
+/* Enlace para saltar al contenido (aparece solo al navegar con teclado) */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 100;
+  padding: 0.6rem 1.2rem;
+  background: var(--color-gold);
+  color: #111;
+  font-weight: 600;
+  transform: translate(-50%, -120%);
+  transition: transform var(--transition);
+}
+
+.skip-link:focus {
+  transform: translate(-50%, 0);
+}
+
 /* --------------------------------------------------------------------------
-   4. BASE DESKTOP
+   4. BOTONES
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-align: center;
+  transition: transform var(--transition), background-color var(--transition),
+    border-color var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* WhatsApp: verde de marca, alto contraste con el fondo oscuro */
+.btn--wa {
+  background-color: var(--color-whatsapp);
+  color: #0a2c17;
+  box-shadow: 0 10px 25px -12px rgba(37, 211, 102, 0.75);
+}
+
+.btn--wa:hover {
+  background-color: #1fbe5a;
+  box-shadow: 0 14px 30px -12px rgba(37, 211, 102, 0.9);
+}
+
+/* Botón secundario: solo contorno dorado */
+.btn--ghost {
+  border-color: var(--color-border);
+  color: var(--color-gold-soft);
+}
+
+.btn--ghost:hover {
+  border-color: var(--color-gold);
+  background-color: rgba(201, 162, 39, 0.08);
+}
+
+.btn--sm {
+  padding: 0.6rem 1.1rem;
+  font-size: 0.85rem;
+}
+
+.btn--lg {
+  padding: 1.05rem 2rem;
+  font-size: 1.05rem;
+  width: 100%;
+}
+
+@media (min-width: 30rem) {
+  .btn--lg {
+    width: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. HEADER FIJO
+   -------------------------------------------------------------------------- */
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  background-color: rgba(13, 13, 16, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+/* Clase que agrega el JS al hacer scroll */
+.header.is-scrolled {
+  border-bottom-color: var(--color-border);
+  background-color: rgba(13, 13, 16, 0.98);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.25rem;
+}
+
+/* --- Logo --- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.brand__mark {
+  display: grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-gold);
+}
+
+.brand__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.brand__name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.brand__role {
+  font-size: 0.62rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+/* --- Botón hamburguesa (solo mobile) --- */
+.nav-toggle {
+  display: grid;
+  place-content: center;
+  gap: 5px;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.nav-toggle__bar {
+  display: block;
+  width: 1.15rem;
+  height: 2px;
+  background-color: var(--color-text);
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+/* Animación de hamburguesa a cruz */
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --- Menú desplegable en mobile --- */
+.nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem 1.25rem 1.75rem;
+  background-color: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+  /* Oculto por defecto; el JS alterna la clase .is-open */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.75rem);
+  transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+}
+
+.nav.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.nav__link {
+  display: block;
+  padding: 0.7rem 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color var(--transition);
+}
+
+.nav__link:hover,
+.nav__link:focus-visible {
+  color: var(--color-gold-soft);
+}
+
+/* --- A partir de tablet el menú vuelve a ser horizontal --- */
+@media (min-width: 48rem) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0;
+    background-color: transparent;
+    border-bottom: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    gap: 1.4rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. HERO
+   -------------------------------------------------------------------------- */
+.hero {
+  /* El header es fijo: este padding lo compensa */
+  padding: 8rem 0 4.5rem;
+  background:
+    radial-gradient(80% 60% at 50% 0%, rgba(201, 162, 39, 0.12), transparent 70%),
+    linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+  text-align: center;
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-gold-soft);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 8vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+/* El "em" en cursiva dorada le da el toque elegante */
+.hero__title em {
+  color: var(--color-gold);
+  font-style: italic;
+}
+
+.hero__lead {
+  max-width: 34rem;
+  margin: 1.25rem auto 2rem;
+  color: var(--color-text-muted);
+  font-size: 1.02rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  align-items: stretch;
+  max-width: 26rem;
+  margin-inline: auto;
+}
+
+.hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  margin-top: 2.25rem;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero__badges li {
+  position: relative;
+  padding-left: 1rem;
+}
+
+/* Puntito dorado de separación */
+.hero__badges li::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+  transform: translateY(-50%);
+}
+
+@media (min-width: 48rem) {
+  .hero {
+    padding: 10rem 0 6rem;
+  }
+
+  .hero__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. BASE DESKTOP
    -------------------------------------------------------------------------- */
 @media (min-width: 48rem) {
   :root {

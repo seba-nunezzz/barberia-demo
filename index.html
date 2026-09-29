@@ -14,21 +14,90 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-  <!--
-    Secciones que se van agregando commit por commit:
-      1. Header fijo + menú hamburguesa
-      2. Hero
-      3. Servicios y precios
-      4. Galería con lazy loading
-      5. Sobre nosotros
-      6. Reseñas
-      7. Ubicación, horarios y mapa
-      8. Footer
-  -->
+<body id="inicio">
+  <!-- Saltar al contenido: accessibility para teclado y lectores de pantalla -->
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+
+  <!-- ===================== HEADER FIJO ===================== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="#inicio" aria-label="Don Ramón Barbershop, ir al inicio">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <circle cx="6" cy="6" r="3"></circle>
+            <circle cx="6" cy="18" r="3"></circle>
+            <path d="M20 4 8.5 15.5"></path>
+            <path d="M14.5 14.5 20 20"></path>
+            <path d="M8.5 8.5 11 11"></path>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">Don Ramón</span>
+          <span class="brand__role">Barbershop</span>
+        </span>
+      </a>
+
+      <!-- Botón hamburguesa: solo visible en celular -->
+      <button class="nav-toggle" id="navToggle" type="button"
+              aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú de navegación">
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav" id="navMenu" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#servicios">Servicios</a></li>
+          <li><a class="nav__link" href="#galeria">Galería</a></li>
+          <li><a class="nav__link" href="#nosotros">Nosotros</a></li>
+          <li><a class="nav__link" href="#resenas">Reseñas</a></li>
+          <li><a class="nav__link" href="#contacto">Contacto</a></li>
+        </ul>
+        <a class="btn btn--wa btn--sm" data-wa="reserva"
+           href="https://wa.me/59894123456?text=Hola%2C%20quiero%20reservar%20un%20turno" target="_blank" rel="noopener">
+          Reservar turno
+        </a>
+      </nav>
+    </div>
+  </header>
 
   <main id="contenido">
-    <!-- acá van las secciones -->
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <p class="hero__eyebrow">Barbería clásica · Cordón, Montevideo</p>
+
+        <h1 class="hero__title" id="hero-title">
+          Corte impecable,<br><em>barba afilada</em>
+        </h1>
+
+        <p class="hero__lead">
+          Navaja caliente, toalla caliente y buena conversación. Reservá tu turno en menos de
+          un minuto por WhatsApp, sin esperas ni llamadas perdidas.
+        </p>
+
+        <div class="hero__actions">
+          <!-- data-wa permite que el JS arme el link con el mensaje correcto -->
+          <a class="btn btn--wa btn--lg" data-wa="reserva"
+             href="https://wa.me/59894123456?text=Hola%2C%20quiero%20reservar%20un%20turno"
+             target="_blank" rel="noopener">
+            <svg class="btn__icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.25-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.25 8.21z"></path>
+              <path d="M9.35 7.6c-.2 0-.41.07-.6.28-.19.21-.72.7-.72 1.72s.74 1.99.85 2.13c.1.14 1.43 2.18 3.47 3.06 2.04.88 2.04.59 2.41.55.37-.03 1.19-.48 1.36-.95.17-.47.17-.87.12-.95-.05-.09-.2-.14-.41-.24-.21-.11-1.25-.62-1.44-.69-.19-.07-.34-.1-.48.1-.14.21-.55.69-.67.83-.12.14-.24.16-.45.05-.21-.1-.89-.33-1.7-1.05-.63-.56-1.05-1.25-1.17-1.46-.12-.21-.01-.33.09-.43.09-.09.21-.24.31-.36.1-.12.14-.21.21-.35.07-.14.03-.26-.02-.36-.05-.1-.47-1.15-.65-1.57-.17-.41-.34-.36-.47-.36z"></path>
+            </svg>
+            Reservar por WhatsApp
+          </a>
+
+          <a class="btn btn--ghost btn--lg" href="#servicios">Ver precios</a>
+        </div>
+
+        <ul class="hero__badges">
+          <li>Turnos todos los días</li>
+          <li>Aceptamos suburbanos</li>
+          <li>Café de la casa</li>
+        </ul>
+      </div>
+    </section>
   </main>
 
   <script src="script.js" defer></script>
