@@ -461,7 +461,150 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   7. BASE DESKTOP
+   7. ENCABEZADO DE SECCIÓN (reutilizado por todas las secciones)
+   -------------------------------------------------------------------------- */
+.section {
+  padding: var(--section-padding) 0;
+}
+
+.section--alt {
+  background-color: var(--color-bg-alt);
+}
+
+.section__head {
+  max-width: 40rem;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.section__eyebrow {
+  color: var(--color-gold);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.section__title {
+  margin-top: 0.6rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 5vw, 2.75rem);
+  line-height: 1.15;
+}
+
+.section__lead {
+  margin-top: 1rem;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   8. SERVICIOS
+   -------------------------------------------------------------------------- */
+.services__grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+
+.service {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.75rem 1.5rem;
+  background-color: var(--color-surface);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.service:hover {
+  border-color: var(--color-border);
+  transform: translateY(-4px);
+}
+
+.service__name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+}
+
+.service__desc {
+  flex: 1;
+  color: var(--color-text-muted);
+  font-size: 0.94rem;
+}
+
+.service__price {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-gold-soft);
+}
+
+.service__price span {
+  font-size: 1.1rem;
+  vertical-align: 0.55em;
+  margin-right: 0.1rem;
+}
+
+.service__cta {
+  align-self: flex-start;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.service__cta:hover {
+  color: var(--color-gold-soft);
+  border-color: var(--color-gold);
+}
+
+/* Tarjeta destacada del combo */
+.service--featured {
+  background-color: linear-gradient(160deg, rgba(201, 162, 39, 0.14), transparent 60%), var(--color-surface);
+  border-color: var(--color-border);
+}
+
+.service__flag {
+  position: absolute;
+  top: -0.7rem;
+  left: 1.5rem;
+  padding: 0.2rem 0.7rem;
+  background-color: var(--color-gold);
+  color: #16130a;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.services__note {
+  margin-top: 2.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+/* 2 columnas en tablet, 4 en desktop */
+@media (min-width: 40rem) {
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .services__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. BASE DESKTOP
    -------------------------------------------------------------------------- */
 @media (min-width: 48rem) {
   :root {
