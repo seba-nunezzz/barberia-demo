@@ -1,0 +1,28 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores / IDE
+.vscode/
+.idea/
+*.swp
+
+# Node (por si el cliente quiere meter herramientas después)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+
+# Build / temporales
+dist/
+build/
+.cache/
+*.tmp
+*.log
+
+# Archivos locales / secretos (nunca subirlos al repo público)
+.env
+.env.local
+*.local

@@ -1,0 +1,126 @@
+/* ==========================================================================
+   Don Ramón Barbershop — hoja de estilos base
+   Mobile-first: los estilos base apuntan al celular y recién después
+   se agregan los @media para pantallas más grandes.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES
+   Este es el ÚNICO bloque que hay que tocar para adaptar la web a otro
+   cliente: colores, tipografías, ancho máximo y radios.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colores */
+  --color-bg: #0d0d10;
+  --color-bg-alt: #14141a;
+  --color-surface: #1b1b22;
+  --color-gold: #c9a227;
+  --color-gold-soft: #e3c46a;
+  --color-text: #f4f1ea;
+  --color-text-muted: #a7a29a;
+  --color-border: rgba(201, 162, 39, 0.22);
+  --color-whatsapp: #25d366;
+
+  /* Tipografías */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Layout */
+  --container-width: 1140px;
+  --radius-sm: 4px;
+  --radius: 8px;
+  --section-padding: 4.5rem 0;
+
+  /*Movimiento*/
+  --transition: 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   3. UTILIDADES
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* Accesibilidad: texto solo para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Foco visible para navegación por teclado */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   4. BASE DESKTOP
+   -------------------------------------------------------------------------- */
+@media (min-width: 48rem) {
+  :root {
+    --section-padding: 6.5rem 0;
+  }
+
+  .container {
+    padding-inline: 2rem;
+  }
+}
