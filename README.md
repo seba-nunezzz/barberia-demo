@@ -30,7 +30,9 @@ No hay build, ni bundler, ni `npm install`. El sitio son 3 archivos.
 - Header fijo con menú hamburguesa en celular (accesible: `aria-expanded`, cierre con `Esc`)
 - Hero con botón grande de **reservar por WhatsApp**
 - Servicios y precios en pesos uruguayos, cada uno con su propio link de WhatsApp precargado
-- Galería de 8 fotos con **lazy loading** (`IntersectionObserver`) y fundido al cargar
+- Galería de 8 fotos con **lazy loading** (`IntersectionObserver`) y fundido al cargar.
+  Las imágenes están **descargadas en `/img`**, no enlutadas a un CDN externo: si
+  Unsplash (o cualquier proveedor) cambia un link, la galería sigue funcionando.
 - Mapa de Google Maps embebido (sin API key)
 - Animaciones de **fade-in al hacer scroll**, desactivadas con `prefers-reduced-motion`
 - SEO básico: `title`, `description`, canonical, **Open Graph**, Twitter Card y datos estructurados `HairSalon` (JSON-LD)
@@ -43,7 +45,7 @@ barberia-demo/
 ├── index.html   # toda la estructura y el contenido
 ├── style.css    # estilos, con el bloque de variables al principio
 ├── script.js    # menú, WhatsApp, lazy loading, animaciones
-├── img/         # imágenes propias del cliente (en la demo se usan URLs de Unsplash)
+├── img/         # fotos de la galería y la imagen para redes (361 KB en total)
 ├── README.md
 ├── .gitignore
 └── .gitattributes
@@ -77,8 +79,10 @@ npx serve .
 
 Después abrí <http://localhost:8000>.
 
-> Importante: el número de WhatsApp, los precios y el mapa son **ficticios**,
-> así que probá la reserva con un número real tuyo antes de mostrarla a un cliente.
+> Importante: el número de WhatsApp, los precios, las reseñas y los datos del local
+> son **ficticios** (esta es una demo de portfolio). Antes de entregarla a un cliente
+> hay que reemplazarlos por datos reales. **Nunca publiques reseñas inventadas como
+> si fueran de clientes reales.**
 
 ## 🚀 Publicar en GitHub Pages
 
@@ -97,10 +101,10 @@ La web queda online en `https://<tu-usuario>.github.io/barberia-demo/` en 1-2 mi
 | --- | --- |
 | Colores, tipografías, ancho | Bloque `:root` al principio de `style.css` |
 | Número de WhatsApp | Constante `WHATSAPP_NUMBER` en `script.js` |
-| Textos y fotos | `index.html` |
-| Precios y horarios | `index.html`, secciones Servicios y Horarios |
+| Textos, precios, horarios | `index.html` |
+| Fotos | `img/` + el `data-src` de cada `<li class="gallery__item">` (ver `img/README.txt`) |
 | Mapa | `src` del `<iframe>` en la sección de Ubicación |
-| Foto para compartir en redes | `og:image` del `<head>` |
+| Foto para compartir en redes | `img/og.jpg` (1200x630) |
 
 Los colores, el tipo de letra y el ancho están todos en variables CSS por eso
 cambiar la estética completa del sitio es editar diez líneas.
@@ -129,5 +133,6 @@ los textos, sale una web nueva para el siguiente cliente sin volver a programar 
 
 ## 📄 Licencia
 
-MIT. Las fotos de la demo son de [Unsplash](https://unsplash.com) y se usan solo
-como placeholders: reemplazarlas por fotos reales antes de entregar a un cliente.
+MIT. Las fotos de la demo son de [Unsplash](https://unsplash.com) y se usan bajo su
+licencia de uso libre: son **placeholders**, reemplazarlas por fotos reales del local
+antes de entregar el sitio a un cliente.
