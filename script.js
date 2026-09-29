@@ -86,10 +86,48 @@ function initHeaderScroll() {
 }
 
 // --------------------------------------------------------------------------
+// Lazy loading de la galería
+// Las imágenes trae su URL real en data-src y un SVG de 1 px en src.
+// Cuando la imagen entra en pantalla se le pone la URL real y se marca
+// como cargada para disparar el fundido.
+// --------------------------------------------------------------------------
+function initLazyImages() {
+  const images = document.querySelectorAll("img[data-src]");
+  if (!images.length) return;
+
+  const loadImage = (img) => {
+    img.src = img.dataset.src;
+    // La clase se agrega recién cuando la foto terminó de decodificar
+    const onLoad = () => img.classList.add("is-loaded");
+    if (img.complete) onLoad();
+    else img.addEventListener("load", onLoad, { once: true });
+    // Libera el atributo para no guardar la URL dos veces
+    delete img.dataset.src;
+  };
+
+  // Navegadores modernos: IntersectionObserver, mucho más liviano
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        loadImage(entry.target);
+        obs.unobserve(entry.target); // deja de observar: ya no hace falta
+      });
+    }, { rootMargin: "200px" }); // carga un poco antes de que se vea
+
+    images.forEach((img) => observer.observe(img));
+  } else {
+    // Respaldo para navegadores viejos
+    images.forEach(loadImage);
+  }
+}
+
+// --------------------------------------------------------------------------
 // Inicialización
 // --------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
   initWhatsAppLinks();
   initMenu();
   initHeaderScroll();
+  initLazyImages();
 });
