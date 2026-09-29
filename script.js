@@ -91,7 +91,7 @@ function initHeaderScroll() {
 
 // --------------------------------------------------------------------------
 // Lazy loading de la galería
-// Las imágenes trae su URL real en data-src y un SVG de 1 px en src.
+// Las imágenes traen su URL real en data-src y un SVG vacío en src.
 // Cuando la imagen entra en pantalla se le pone la URL real y se marca
 // como cargada para disparar el fundido.
 // --------------------------------------------------------------------------

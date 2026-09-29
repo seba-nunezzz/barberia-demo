@@ -3,13 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Don Ramón Barbershop</title>
-  <meta name="description" content="Barbería clásica en Montevideo. Corte, barba y perfilado. Reservá tu turno por WhatsApp.">
+
+  <!-- ===================== SEO BÁSICO =====================
+       Para publicar: cambiar la URL del canonical y de og:url por el
+       dominio real del cliente. -->
+
+  <title>Don Ramón Barbershop | Barbería en Montevideo — Reservá por WhatsApp</title>
+  <meta name="description" content="Barbería clásica en el Cordón, Montevideo. Corte $450, barba $320 y combo $700. Turnos todos los días. Reservá por WhatsApp en 1 minuto.">
+  <meta name="author" content="Don Ramón Barbershop">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://donramonbarbershop.github.io/barberia-demo/">
+
+  <!-- Open Graph: cómo se ve el link en WhatsApp, Facebook e Instagram -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_UY">
+  <meta property="og:site_name" content="Don Ramón Barbershop">
+  <meta property="og:url" content="https://donramonbarbershop.github.io/barberia-demo/">
+  <meta property="og:title" content="Don Ramón Barbershop | Barbería en Montevideo">
+  <meta property="og:description" content="Corte clásico, barba afilada y buena conversación. Reservá tu turno por WhatsApp.">
+  <!-- Al publicar, reemplazar por una imagen propia de 1200x630 alojada en el repo -->
+  <meta property="og:image" content="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&h=630&q=70">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0d0d10">
+
+  <!-- Favicon inline: tijera dorada. Evita un pedido extra al servidor -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%230d0d10'/%3E%3Cg stroke='%23c9a227' stroke-width='1.7' fill='none' stroke-linecap='round'%3E%3Ccircle cx='7' cy='17' r='2.6'/%3E%3Ccircle cx='7' cy='7' r='2.6'/%3E%3Cpath d='M9.2 8.4 18 18M9.2 15.6 18 6'/%3E%3C/g%3E%3C/svg%3E">
 
   <!-- Tipografías de Google Fonts: solo 2, como pide el diseño -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap">
+
+  <!-- Datos estructurados: ayuda a Google a mostrar el local en el mapa -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "Don Ramón Barbershop",
+    "description": "Barbería clásica en el Cordón, Montevideo. Corte, barba y perfilado.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Brasil 1420",
+      "addressLocality": "Montevideo",
+      "postalCode": "11300",
+      "addressCountry": "UY"
+    },
+    "telephone": "+59894123456",
+    "priceRange": "$$",
+    "openingHours": ["Mo-Fr 09:00-20:00", "Sa 09:00-18:00"]
+  }
+  </script>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -98,6 +144,7 @@
         </ul>
       </div>
     </section>
+
     <!-- ===================== SERVICIOS Y PRECIOS ===================== -->
     <section class="section services" id="servicios" aria-labelledby="servicios-title">
       <div class="container">
@@ -134,7 +181,7 @@
           </li>
 
           <!-- Tarjeta destacada: es el combo que más se pide -->
-          <li class="service service--featured">
+          <li class="service service--featured" data-reveal>
             <p class="service__flag">Más pedido</p>
             <h3 class="service__name">Corte + barba</h3>
             <p class="service__desc">
@@ -163,12 +210,13 @@
         </p>
       </div>
     </section>
+
     <!-- ===================== GALERÍA =====================
          Fotos de placeholder de Unsplash para la demo.
          Para usar fotos reales: bajar la imagen a img/ y cambiar data-src
          por la ruta local (ver img/README.txt).
-         El src inicial es un SVG de 1 px: ocupa el lugar de la foto mientras
-         carga la real, y evita que se vea un marco vacío. -->
+         El src inicial es un SVG vacío del mismo tamaño: pinta el hueco
+         mientras carga la foto real y evita saltos de layout. -->
     <section class="section section--alt gallery" id="galeria" aria-labelledby="galeria-title">
       <div class="container">
         <header class="section__head" data-reveal>
@@ -229,6 +277,7 @@
         </ul>
       </div>
     </section>
+
     <!-- ===================== SOBRE NOSOTROS ===================== -->
     <section class="section about" id="nosotros" aria-labelledby="nosotros-title">
       <div class="container about__inner">
@@ -286,7 +335,7 @@
           <li class="review" data-reveal>
             <p class="review__stars" aria-label="5 de 5 estrellas">★★★★★</p>
             <blockquote class="review__text">
-              <p>Reservé por WhatsApp un domingo a la noche y me contestaron en dos
+              <p>Reservé por WhatsApp un sábado al mediodía y me contestaron en dos
               minutos. Llegué, me senté, 30 minutos y salí como nuevo.</p>
             </blockquote>
             <footer class="review__author">
@@ -408,7 +457,7 @@
         <h2 class="footer__title">Contacto</h2>
         <ul>
           <li>Av. Brasil 1420, Montevideo</li>
-          <li><a href="tel:+59829412345">+598 94 123 456</a></li>
+          <li><a href="tel:+59894123456">+598 94 123 456</a></li>
           <li>
             <a data-wa="reserva"
                href="https://wa.me/59894123456?text=Hola%2C%20quiero%20reservar%20un%20turno"

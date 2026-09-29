@@ -181,6 +181,10 @@ button {
   background-color: rgba(201, 162, 39, 0.08);
 }
 
+.btn__icon {
+  flex-shrink: 0;
+}
+
 .btn--sm {
   padding: 0.6rem 1.1rem;
   font-size: 0.85rem;
