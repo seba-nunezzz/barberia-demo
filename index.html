@@ -229,7 +229,226 @@
         </ul>
       </div>
     </section>
+    <!-- ===================== SOBRE NOSOTROS ===================== -->
+    <section class="section about" id="nosotros" aria-labelledby="nosotros-title">
+      <div class="container about__inner">
+        <div class="about__text">
+          <p class="section__eyebrow">Desde 2015</p>
+          <h2 class="section__title" id="nosotros-title">Una barbería de barrio,<br>de las de antes</h2>
+          <p class="about__lead">
+            Don Ramón Barbershop nació en el Cordón con una idea simple: cortar bien,
+            conversar tranquilo y cobrar un precio justo. Diez años después seguimos
+            con la misma navaja, el mismo café y los mismos clientes.
+          </p>
+          <a class="btn btn--wa" data-wa="reserva"
+             href="https://wa.me/59894123456?text=Hola%2C%20quiero%20reservar%20un%20turno"
+             target="_blank" rel="noopener">Reservar mi turno</a>
+        </div>
+
+        <dl class="about__stats">
+          <div class="stat">
+            <dt class="stat__label">Años en el barrio</dt>
+            <dd class="stat__value">10</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__label">Clientes felices</dt>
+            <dd class="stat__value">+8.000</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__label">Barberos en la plantilla</dt>
+            <dd class="stat__value">3</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===================== RESEÑAS ===================== -->
+    <section class="section section--alt reviews" id="resenas" aria-labelledby="resenas-title">
+      <div class="container">
+        <header class="section__head">
+          <p class="section__eyebrow">Lo que dicen</p>
+          <h2 class="section__title" id="resenas-title">Reseñas de clientes</h2>
+        </header>
+
+        <ul class="reviews__grid">
+          <li class="review">
+            <p class="review__stars" aria-label="5 de 5 estrellas">★★★★★</p>
+            <blockquote class="review__text">
+              <p>Vengo desde hace 4 años y nunca me fue mal un corte. Siempre preguntan
+              qué quiero y no te apuran. La barba es otro nivel.</p>
+            </blockquote>
+            <footer class="review__author">
+              <cite class="review__name">Martín Fernández</cite>
+              <span class="review__meta">Cliente habitual</span>
+            </footer>
+          </li>
+
+          <li class="review">
+            <p class="review__stars" aria-label="5 de 5 estrellas">★★★★★</p>
+            <blockquote class="review__text">
+              <p>Reservé por WhatsApp un domingo a la noche y me contestaron en dos
+              minutos. Llegué, me senté, 30 minutos y salí como nuevo.</p>
+            </blockquote>
+            <footer class="review__author">
+              <cite class="review__name">Rodrigo Sosa</cite>
+              <span class="review__meta">Reservó por WhatsApp</span>
+            </footer>
+          </li>
+
+          <li class="review">
+            <p class="review__stars" aria-label="5 de 5 estrellas">★★★★★</p>
+            <blockquote class="review__text">
+              <p>Precio justo, trato excelente y siempre sin fila. Si buscás un barbero
+              de barrio que se tome el tiempo, este es el lugar.</p>
+            </blockquote>
+            <footer class="review__author">
+              <cite class="review__name">Nicolás Pereira</cite>
+              <span class="review__meta">Cliente desde 2022</span>
+            </footer>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== UBICACIÓN Y HORARIOS ===================== -->
+    <section class="section location" id="contacto" aria-labelledby="contacto-title">
+      <div class="container">
+        <header class="section__head">
+          <p class="section__eyebrow">Dónde estamos</p>
+          <h2 class="section__title" id="contacto-title">Ubicación y horarios</h2>
+        </header>
+
+        <div class="location__inner">
+          <!-- Datos de contacto -->
+          <div class="location__data">
+            <h3 class="location__subtitle">Don Ramón Barbershop</h3>
+
+            <address class="location__block">
+              <p>Av. Brasil 1420</p>
+              <p>Cordón, 11300 Montevideo</p>
+              <p>Uruguay</p>
+            </address>
+
+            <h3 class="location__subtitle">Horarios</h3>
+            <table class="schedule">
+              <caption class="sr-only">Horarios de atención</caption>
+              <tbody>
+                <tr>
+                  <th scope="row">Lunes a viernes</th>
+                  <td>09:00 – 20:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Sábados</th>
+                  <td>09:00 – 18:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Domingos</th>
+                  <td>Cerrado</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <a class="btn btn--wa location__cta" data-wa="reserva"
+               href="https://wa.me/59894123456?text=Hola%2C%20quiero%20reservar%20un%20turno"
+               target="_blank" rel="noopener">Consultar disponibilidad</a>
+          </div>
+
+          <!--
+            Mapa de Google Maps.
+            Se usa output=embed, que no necesita API key ni facturación.
+            Si el cliente quiere otro mapa, alcanza con cambiar la URL del iframe
+            por la de Google Maps, OpenStreetMap o Google My Maps.
+          -->
+          <div class="location__map">
+            <iframe
+              title="Mapa de la ubicación de Don Ramón Barbershop en Av. Brasil 1420, Montevideo"
+              src="https://www.google.com/maps?q=Av.%20Brasil%201420%2C%20Montevideo%2C%20Uruguay&amp;output=embed"
+              width="600" height="450" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="brand" href="#inicio">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+              <circle cx="6" cy="6" r="3"></circle>
+              <circle cx="6" cy="18" r="3"></circle>
+              <path d="M20 4 8.5 15.5"></path>
+              <path d="M14.5 14.5 20 20"></path>
+              <path d="M8.5 8.5 11 11"></path>
+            </svg>
+          </span>
+          <span class="brand__text">
+            <span class="brand__name">Don Ramón</span>
+            <span class="brand__role">Barbershop</span>
+          </span>
+        </a>
+        <p class="footer__tagline">Corte clásico, barba afilada y buena conversación. Todos los días.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Secciones del sitio">
+        <h2 class="footer__title">Secciones</h2>
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#resenas">Reseñas</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__col">
+        <h2 class="footer__title">Contacto</h2>
+        <ul>
+          <li>Av. Brasil 1420, Montevideo</li>
+          <li><a href="tel:+59829412345">+598 94 123 456</a></li>
+          <li>
+            <a data-wa="reserva"
+               href="https://wa.me/59894123456?text=Hola%2C%20quiero%20reservar%20un%20turno"
+               target="_blank" rel="noopener">WhatsApp</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h2 class="footer__title">Seguinos</h2>
+        <ul class="footer__social">
+          <li>
+            <a href="https://instagram.com/donramonbarbershop" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.8 3.8 0 0 1-1.38-.9 3.8 3.8 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.98c-3.14 0-3.51.01-4.75.07-1.15.05-1.77.24-2.19.4-.55.22-.94.47-1.35.88-.41.41-.66.8-.88 1.35-.16.42-.35 1.04-.4 2.19-.06 1.24-.07 1.61-.07 4.75s.01 3.51.07 4.75c.05 1.15.24 1.77.4 2.19.22.55.47.94.88 1.35.41.41.8.66 1.35.88.42.16 1.04.35 2.19.4 1.24.06 1.61.07 4.75.07s3.51-.01 4.75-.07c1.15-.05 1.77-.24 2.19-.4.55-.22.94-.47 1.35-.88.41-.41.66-.8.88-1.35.16-.42.35-1.04.4-2.19.06-1.24.07-1.61.07-4.75s-.01-3.51-.07-4.75c-.05-1.15-.24-1.77-.4-2.19a3.6 3.6 0 0 0-.88-1.35 3.6 3.6 0 0 0-1.35-.88c-.42-.16-1.04-.35-2.19-.4-1.24-.06-1.61-.07-4.75-.07z"></path>
+                <path d="M12 15.34a3.34 3.34 0 1 1 0-6.68 3.34 3.34 0 0 1 0 6.68zm0-1.98a1.36 1.36 0 1 0 0-2.72 1.36 1.36 0 0 0 0 2.72z"></path>
+                <circle cx="18.41" cy="5.59" r="1.44"></circle>
+              </svg>
+              @donramonbarbershop
+            </a>
+          </li>
+          <li>
+            <a data-wa="reserva"
+               href="https://wa.me/59894123456?text=Hola%2C%20quiero%20reservar%20un%20turno"
+               target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.25-4.36c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.21-8.25 8.21z"></path>
+              </svg>
+              WhatsApp directo
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>&copy; <span id="anio">2026</span> Don Ramón Barbershop. Todos los derechos reservados.</p>
+      <p class="footer__demo">Sitio de demostración · Montevideo, Uruguay</p>
+    </div>
+  </footer>
 
   <script src="script.js" defer></script>
 </body>

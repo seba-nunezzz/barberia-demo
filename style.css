@@ -656,7 +656,272 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   10. BASE DESKTOP
+   10. SOBRE NOSOTROS
+   -------------------------------------------------------------------------- */
+.about__inner {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.section__title + .about__lead {
+  margin-top: 1rem;
+}
+
+.about__lead {
+  color: var(--color-text-muted);
+  margin-bottom: 1.75rem;
+  max-width: 32rem;
+}
+
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1.75rem 1rem;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.stat__value {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 2.25rem);
+  font-weight: 700;
+  color: var(--color-gold-soft);
+  line-height: 1.1;
+}
+
+.stat__label {
+  margin-top: 0.35rem;
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 64rem) {
+  .about__inner {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 4rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. RESEÑAS
+   -------------------------------------------------------------------------- */
+.reviews__grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1.75rem 1.5rem;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.review__stars {
+  color: var(--color-gold);
+  font-size: 1.05rem;
+  letter-spacing: 0.15em;
+}
+
+.review__text {
+  flex: 1;
+  color: var(--color-text);
+  font-size: 0.98rem;
+}
+
+/* Comillas decorativas de la cita */
+.review__text p {
+  position: relative;
+  padding-left: 1rem;
+  border-left: 2px solid var(--color-border);
+}
+
+.review__author {
+  display: flex;
+  flex-direction: column;
+}
+
+.review__name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-style: normal;
+}
+
+.review__meta {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+@media (min-width: 48rem) {
+  .reviews__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. UBICACIÓN Y HORARIOS
+   -------------------------------------------------------------------------- */
+.location__inner {
+  display: grid;
+  gap: 2rem;
+}
+
+.location__subtitle {
+  margin-bottom: 0.6rem;
+  color: var(--color-gold-soft);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.location__subtitle + * {
+  margin-bottom: 1.75rem;
+}
+
+.location__block {
+  color: var(--color-text-muted);
+  font-style: normal;
+}
+
+.schedule {
+  width: 100%;
+  max-width: 22rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.schedule th,
+.schedule td {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+.schedule th {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.schedule td {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.location__cta {
+  margin-top: 1.75rem;
+}
+
+.location__map {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.location__map iframe {
+  display: block;
+  width: 100%;
+  height: 20rem;
+  border: 0;
+  /* El mapa de Google viene con su propio filtro: lo ajustamos al tema */
+  filter: grayscale(0.35) contrast(1.05);
+}
+
+@media (min-width: 48rem) {
+  .location__map iframe {
+    height: 100%;
+    min-height: 24rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .location__inner {
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 3rem;
+    align-items: stretch;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13. FOOTER
+   -------------------------------------------------------------------------- */
+.footer {
+  padding-top: 3.5rem;
+  background-color: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+  font-size: 0.92rem;
+}
+
+.footer__inner {
+  display: grid;
+  gap: 2.25rem;
+  padding-bottom: 2.5rem;
+}
+
+.footer__tagline {
+  margin-top: 1rem;
+  max-width: 22rem;
+  color: var(--color-text-muted);
+}
+
+.footer__title {
+  margin-bottom: 0.9rem;
+  color: var(--color-gold);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.footer__col ul {
+  display: grid;
+  gap: 0.5rem;
+  color: var(--color-text-muted);
+}
+
+.footer__col a {
+  transition: color var(--transition);
+}
+
+.footer__col a:hover,
+.footer__col a:focus-visible {
+  color: var(--color-gold-soft);
+}
+
+.footer__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+@media (min-width: 48rem) {
+  .footer__inner {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14. BASE DESKTOP
    -------------------------------------------------------------------------- */
 @media (min-width: 48rem) {
   :root {

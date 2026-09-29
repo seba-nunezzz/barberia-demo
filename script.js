@@ -123,6 +123,14 @@ function initLazyImages() {
 }
 
 // --------------------------------------------------------------------------
+// Año del copyright: se completa solo, así nunca queda desactualizado
+// --------------------------------------------------------------------------
+function initCurrentYear() {
+  const year = document.getElementById("anio");
+  if (year) year.textContent = new Date().getFullYear();
+}
+
+// --------------------------------------------------------------------------
 // Inicialización
 // --------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
@@ -130,4 +138,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initMenu();
   initHeaderScroll();
   initLazyImages();
+  initCurrentYear();
 });
