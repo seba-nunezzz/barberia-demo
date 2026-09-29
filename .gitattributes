@@ -1,0 +1,14 @@
+# Normaliza los finales de línea para que el repo no ensucie los diffs
+# entre Windows (CRLF) y Linux/macOS (LF).
+* text=auto eol=lf
+
+# Archivos que deben quedar siempre en LF
+*.css text eol=lf
+*.js  text eol=lf
+*.html text eol=lf
+*.md  text eol=lf
+*.txt text eol=lf
+
+# Los .gitattributes, .gitignore y los .bat de Windows no se tocan
+.gitattributes text eol=lf
+.gitignore text eol=lf

@@ -4,10 +4,14 @@
    Las funcionalidades se van sumando commit por commit.
    ========================================================================== */
 
+// Marca que hay JS activo: las animaciones de entrada solo se aplican si esta
+// clase está presente, así el contenido nunca queda invisible sin JavaScript.
+document.documentElement.classList.add("has-js");
+
 // --------------------------------------------------------------------------
 // Número de WhatsApp y mensajes predefinidos
 // --------------------------------------------------------------------------
-const WHATSAPP_NUMBER = "59894123456"; //formato internacional, sin + ni espacios
+const WHATSAPP_NUMBER = "59894123456"; // formato internacional, sin + ni espacios
 
 // Mensaje que se manda en cada botón, según el contexto (data-wa del HTML)
 const WHATSAPP_MESSAGES = {
@@ -131,6 +135,40 @@ function initCurrentYear() {
 }
 
 // --------------------------------------------------------------------------
+// Animaciones de entrada al hacer scroll (fade-in)
+// Los elementos con [data-reveal] empiezan invisibles y se muestran al entrar
+// en pantalla. Los hermanos se escalonan para que no aparezcan todos juntos.
+// --------------------------------------------------------------------------
+function initReveal() {
+  const items = document.querySelectorAll("[data-reveal]");
+
+  // Si el visitante pidió menos movimiento, mostramos todo sin animar
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    items.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
+  // Retraso progresivo por grupo de hermanos
+  const counter = new WeakMap();
+  items.forEach((item) => {
+    const index = counter.get(item.parentElement) || 0;
+    counter.set(item.parentElement, index + 1);
+    item.style.transitionDelay = `${index * 90}ms`;
+  });
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      obs.unobserve(entry.target); // la animación corre una sola vez
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -60px 0px" });
+
+  items.forEach((item) => observer.observe(item));
+}
+
+// --------------------------------------------------------------------------
 // Inicialización
 // --------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
@@ -138,5 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initMenu();
   initHeaderScroll();
   initLazyImages();
+  initReveal();
   initCurrentYear();
 });
