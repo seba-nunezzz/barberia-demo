@@ -32,10 +32,17 @@
   <!-- Favicon inline: tijera dorada. Evita un pedido extra al servidor -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%230d0d10'/%3E%3Cg stroke='%23c9a227' stroke-width='1.7' fill='none' stroke-linecap='round'%3E%3Ccircle cx='7' cy='17' r='2.6'/%3E%3Ccircle cx='7' cy='7' r='2.6'/%3E%3Cpath d='M9.2 8.4 18 18M9.2 15.6 18 6'/%3E%3C/g%3E%3C/svg%3E">
 
-  <!-- Tipografías de Google Fonts: solo 2, como pide el diseño -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap">
+  <!-- ===================== TIPOGRAFÍAS =====================
+       Autoalojadas en /fonts, no enlazadas a Google Fonts: la hoja de
+       estilos de Google era render-blocking y costaba ~1,1 s extra de
+       espera. Al estar en el mismo dominio, todo se pide y cachea junto.
+
+       Los 2 preload son los archivos "latin", los únicos que descarga una
+       página en español (á é í ó ú ñ ¿ ¡ están en ese rango). Así el
+       navegador empieza a bajar la fuente en paralelo con el HTML. -->
+  <link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/playfair.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css">
 
   <!-- Datos estructurados: ayuda a Google a mostrar el local en el mapa -->
   <script type="application/ld+json">

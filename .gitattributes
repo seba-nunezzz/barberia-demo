@@ -12,3 +12,19 @@
 # Los .gitattributes, .gitignore y los .bat de Windows no se tocan
 .gitattributes text eol=lf
 .gitignore text eol=lf
+
+# Binarios: sin conversión de fin de línea y sin diff.
+# Si no se declaran, Git intenta tratarlos como texto y puede "corromper"
+# el archivo al cambiar de máquina. *-diff además evita que un .jpg
+# aparezca en un `git diff` como si fuera texto.
+*.jpg   binary
+*.jpeg  binary
+*.png   binary
+*.webp  binary
+*.gif   binary
+*.ico   binary
+*.woff2 binary
+*.woff  binary
+*.ttf   binary
+*.otf   binary
+*.eot   binary

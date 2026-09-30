@@ -1,0 +1,57 @@
+﻿/* Fuentes autoalojadas.
+ *
+ * Por qué están en /fonts y no enlazadas a Google Fonts:
+ *   1. La hoja de estilos de Google era render-blocking y sumaba ~1,1 s
+ *      porque había que resolver DNS + conexión + TLS a dos orígenes ajenos.
+ *   2. Al servirlas desde el mismo dominio, el HTML, el CSS y la fuente
+ *      viajan por la misma conexión y se cachean juntos.
+ *   3. Sin terceros: el sitio no depende de que fonts.googleapis.com esté
+ *      disponible.
+ *
+ * Los archivos son fuentes variables: cada archivo cubre todos los pesos,
+ * por eso hay 1 archivo por familia y subconjunto y no 1 por peso.
+ *
+ * `unicode-range` hace que el navegador descargue SOLO el subconjunto que
+ * necesita. Una página en español usa el bloque "latin"; el "latin-ext"
+ * queda en disco pero no se descarga salvo que aparezca un carácter raro.
+ */
+
+/* latin-ext: para textos con caracteres fuera del rango latino básico */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url(inter-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin: incluye á é í ó ú ñ ü ¿ ¡ — es el que usa esta web */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url(inter.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: url(playfair-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: url(playfair.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
