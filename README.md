@@ -109,6 +109,31 @@ La web queda online en `https://<tu-usuario>.github.io/barberia-demo/` en 1-2 mi
 Los colores, el tipo de letra y el ancho están todos en variables CSS por eso
 cambiar la estética completa del sitio es editar diez líneas.
 
+## 📊 Lighthouse
+
+Medido con Lighthouse 13.5.0 sobre Chrome 154, red móvil simulada:
+
+| Categoría | Móvil | Escritorio |
+| --- | --- | --- |
+| Performance | **95** | **98** |
+| Accessibility | **100** | **100** |
+| Best Practices | **100** | **100** |
+| SEO | **100** | **100** |
+
+Métricas en móvil: FCP 1,6 s · LCP 1,9 s · CLS **0** · TBT 210 ms · **101 KB** en total.
+
+Lo que hizo posible el 95 sin frameworks ni build:
+
+- **Fuentes autoalojadas** en `/fonts`. La hoja de estilos de Google Fonts era
+  render-blocking y costaba ~1,1 s; servirla desde el propio dominio y precargar
+  los dos archivos `latin` subió el Performance de 91 a 95 y bajó el FCP de 2,3 a 1,6 s.
+- **Fotos en el repo, no en un CDN**, y con `loading="lazy"` + `IntersectionObserver`.
+- **Favicon SVG inline**: ni una request extra al servidor.
+- **Sin librerías**: cero kilobytes de JavaScript de terceros.
+- `width`/`height` y `aspect-ratio` en todas las imágenes, por eso el CLS es 0.
+
+Para reproducirlo: DevTools → Lighthouse → Móvil y Escritorio.
+
 ## 🤔 Por qué lo hice
 
 Este proyecto es una **demo de portfolio** con la que quiero ofrecer páginas web a
